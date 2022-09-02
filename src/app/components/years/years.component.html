@@ -1,0 +1,12 @@
+<div class="container" >
+    <div class="row"   >
+        <option selected>Years</option>
+        <select *ngIf="dataOferta.years.length>0" class="form-control" [(ngModel)]="seleccionado" (ngModelChange)="guardar($event)" aria-label="Default select example">
+            <option  *ngFor="let data of dataOferta"  [ngValue]="data.id">
+                {{data.years[0].value}}
+            </option>
+          </select>
+    </div>
+</div>
+{{seleccionado}}
+

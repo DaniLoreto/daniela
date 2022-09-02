@@ -1,0 +1,152 @@
+<div class="row">
+    <div class="col" id="codCotizacion">
+        <h1>Codigo Cotizacion : </h1>
+        <h2>
+            {{idCot}}
+        </h2>
+    </div>
+</div>
+
+
+
+<div class="container text-center" #cards>
+    <div class="row mb-5">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let data of ofertas">
+            <div class="card card-inverse card-info">
+                <img class="card-img-top" src={{data.product?.division?.logo}} alt="{{alt}}">
+                <div class="card-body">
+                    <div class="MuiGrid019 MuiGrid0148 c01473">
+                        <hr class="MuiDivider01350 c01475">
+                        <span class="c01474 MuiTypography01130 c01482 c01480">
+                            Deducible {{data.deductible}}
+                        </span>
+                    </div>
+                    <h5 class="card-title mt-3">
+                        {{data.product?.name}}
+                    </h5>
+                    <div class="meta card-text">
+                        <div
+                            *ngIf="data.product && data.product.productAttributes && data.product.productAttributes.length>0">
+                            <ul>
+                                <li>
+                                    Perdida Total: {{data.product.productAttributes[0].value}}
+                                </li>
+                                <li>
+                                    Daños a Terceros: {{data.product.productAttributes[1].value}}
+                                </li>
+                                <li>
+                                    Tipo Taller: {{data.product.productAttributes[2].value}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <button id="contact" class="btn btn-primary btn-sm" (click)="open2(gatito)">Solicitar</button>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-secondary btn-sm" (click)="open(data, perrito)">Características</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+            <ng-template #perrito id="perrito">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">CARACTERÍSTICAS</div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- {{dataOferta|json}} -->
+                                <div *ngIf="dataOferta?.product?.productAttributes">
+                                    <div *ngFor="let x of dataOferta.product.productAttributes">
+                                        <span *ngIf="x.value && x.entityLabel">
+                                            <h6>{{x.entityLabel}}:
+                                                <span
+                                                    *ngIf="!x?.value?.amount && !x?.value?.value && x.value?.amount !==0">{{x.value}}</span>
+                                                <span *ngIf="x.value?.amount ===0">{{x.value.amount}}</span>
+                                                <span *ngIf="x?.value.value">{{x.value?.value}}</span>
+                                            </h6>
+                                            <div class="text-muted">{{x.extraDescription}}</div>
+                                            <hr>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div *ngIf="!dataOferta?.product?.productAttributes">
+                                    NO EXISTE DATA
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+            <ng-template #gatito id="gatito">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            <h2>Muchas Gracias !</h2>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <p>
+                                    Hemos recibido tu solicitud. Te contactaremos a la brevedad, para continuar con el
+                                    proceso de
+                                    Transferencia Digital.
+                                </p>
+                                <div class="modal-footer">
+                                    <button #cerrar type="button" class="btn btn-default"
+                                        (click)="close()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+
+<!-- <h2 class="card-title mt-3">
+                        {{data.product?.name}}
+                    </h2> -->
+                    <!-- <div class="MuiGrid019 MuiGrid0148 c01473">
+                        <hr class="MuiDivider01350 c01475">
+                        <span class="c01474 MuiTypography01130 c01482 c01480">
+                            Deducible {{data.deductible}}
+                        </span>
+                    </div>
+
+                    <div class="meta card-text">
+                        <div
+                            *ngIf="data.product && data.product.productAttributes && data.product.productAttributes.length>0">
+                            <ul>
+                                <li>
+                                    Perdida Total: {{data.product.productAttributes[0].value}}
+                                </li>
+                                <li>
+                                    Daños a Terceros: {{data.product.productAttributes[1].value}}
+                                </li>
+                                <li>
+                                    Tipo Taller: {{data.product.productAttributes[2].value}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-text">
+                        <h3>
+                            $ {{data.monthlyPriceCLP |number: '0.0-0'}}
+                        </h3>
+                        <h6>
+                            Cuota mensual
+                        </h6>
+                    </div>
+                    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+<!-- 
+                    <button id="contact" class="btn btn-primary btn-sm" (click)="open2(gatito)">Solicitar
+                    </button>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-secondary btn-sm" (click)="open(data, perrito)">Características</button>
+                    </div> -->

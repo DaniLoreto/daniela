@@ -1,0 +1,95 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="  fadeIn first">
+        <img src="{{img}}" alt="{{alt}}"id="icon" alt="User Icon" />
+      </div>
+      <!-- <h4>{{titulo}}</h4> -->
+      <!-- Tabs Titles -->
+      <h2> Formulario Seguros Compara</h2>
+
+      <h5>Ingresa tus datos para que te contactemos</h5>
+      <form [formGroup]="cotizacionForm" (ngSubmit)="onCotizacion(cotizacionForm.value)">
+        <h6>Nombres</h6>
+        <input type="text" id="firstName" formControlName="firstName" class="form-control form-control-lg"
+          placeholder="firstName">
+          <h6>Apellidos</h6>
+        <input type="text" id="lastName" formControlName="lastName" class="form-control form-control-lg"
+          placeholder="lastName">
+          <h6>Fecha Nacimiento</h6>
+        <input type="date" id="birthdate" formControlName="birthdate" class="form-control form-control-lg"
+          placeholder="birthdate">
+            <h6>Rut</h6>
+          <input type="text" id="nationalId" formControlName="nationalId" class="form-control form-control-lg"
+            placeholder="nationalId">
+        
+
+            <h6>Dueño 0 / Tercero 1 / empresa 0</h6>
+          <input type="text" id="carOwner" formControlName="carOwner" class="form-control form-control-lg"
+            placeholder="carOwner">
+        <h6>Marca Vehiculo</h6>
+        <!-- app marca vehiculo -->
+        <app-marcas (newItemEvent)="addItemMarcas($event)"></app-marcas>
+        <h6>Modelo del Vehiculo</h6>
+        <!-- app modelos de vehiculos -->
+        <app-modelos (newItemEvent)="addItemComunas($event)"></app-modelos>
+          <h6>Año Vehiculo</h6>
+        <input type="text" id="year" formControlName="year" class="form-control form-control-lg" placeholder="year">
+          <h6>Cuidad</h6>
+          <!-- app comunas -->
+          <app-comunas (newItemEvent)="addItemComunas($event)"></app-comunas>
+          <h6>Telefono</h6>
+        <input type="text" id="phone" formControlName="phone" class="form-control form-control-lg" placeholder="phone">
+        <h6>email</h6>
+        <input type="text" id="email" formControlName="email" class="form-control form-control-lg" placeholder="email">
+        <h6>1 whatsApp/ 2 telefono / 3 no contactar</h6>
+        <input type="text" id="contactType" formControlName="contactType" class="form-control form-control-lg"
+          placeholder="contactType">
+          <h6>uso Comercial/private</h6>
+        <input type="text" id="carUseType" formControlName="carUseType" class="form-control form-control-lg"
+          placeholder="carUseType">      
+
+          <h6>Nombre empresa 
+          </h6>
+        <input type="text" id="businessName" formControlName="businessName" class="form-control form-control-lg"
+          placeholder="businessName">
+        <br>
+
+        <fieldset class="form-group">
+          <div class="row">
+            <h6>Dueño 0 / Tercero 1 / empresa 0</h6>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                  Dueño
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Tercero
+                </label>
+              </div>
+              <div class="form-check disabled">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                <label class="form-check-label" for="gridRadios3">
+                  Empresa
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="Submit" class="btn btn-primary">cotizacion</button>
+      </form>
+     <div>
+  </div>
+<div><div>
+
+</div></div>
+<br><br>
+
+
+
+  
+  
